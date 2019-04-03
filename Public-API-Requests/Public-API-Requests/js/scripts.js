@@ -70,8 +70,10 @@ $(document).ready(function () {
       if (currPerson < 11) {
         do {
           currPerson++;
-        } while (listOfPeople[currPerson].getIsShown() === false);
-        listOfPeople[currPerson].createModalWindow();
+        } while (listOfPeople[currPerson].getIsShown() === false &&
+                 currPerson < 11);
+        if (listOfPeople[currPerson].getIsShown() === true)
+          listOfPeople[currPerson].createModalWindow();
       }
 
       // Re-adds modal Event listeners on click
@@ -87,8 +89,10 @@ $(document).ready(function () {
       if (currPerson > 0) {
         do {
           currPerson--;
-        } while (listOfPeople[currPerson].getIsShown() === false);
-        listOfPeople[currPerson].createModalWindow();
+        } while (listOfPeople[currPerson].getIsShown() === false &&
+                 currPerson > 0);
+        if (listOfPeople[currPerson].getIsShown() === true)
+          listOfPeople[currPerson].createModalWindow();
       }
 
       // Re-Adds modal Event Listeners
