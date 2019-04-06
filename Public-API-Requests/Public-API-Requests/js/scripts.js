@@ -41,16 +41,14 @@ $(document).ready(function () {
   // Places cards, instantiates 12 Person objects, and puts them into a list
   function placeCards() {
 
-    // Makes 12 cards
-    for (let index = 0; index < 12; index++) {
-
       // Gets JSON to make 12 Person Objects and make cards for each one
-      $.getJSON('https://randomuser.me/api/?nat=gb,us', function (data) {
-        listOfPeople.push(new Person(data.results[0], index));
-        $('#gallery').append(listOfPeople[index].createPerson());
+      $.getJSON('https://randomuser.me/api/?nat=gb,us&results=12', function (data) {
+        for (let index = 0; index < 12; index++) {
+          listOfPeople.push(new Person(data.results[index], index));
+          $('#gallery').append(listOfPeople[index].createPerson());
+        }
       });
 
-    }
   }
 
 
